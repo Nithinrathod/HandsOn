@@ -13,7 +13,9 @@ import java.util.stream.Stream;
 public class StreamApiExample {
 	public static void main(String[] args) {
 		//7th question
-		
+		List<String> l = Arrays.asList("Hello world", "Hello", "Hi");
+		Map<String, Long> m = l.stream().flatMap(s -> Arrays.stream(s.split("\\s+"))).collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+		System.out.println("Words count in string : "+m);
 		//8th question
 		List<Integer> l1 = Arrays.asList(1, 2, 3, 4, 5, 8, 22, 34, 88, 39);
 		int maxVal = l1.stream().max(Integer::compare).get();
